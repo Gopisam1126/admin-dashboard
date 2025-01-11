@@ -18,6 +18,8 @@ import routerBindings, {
 } from "@refinedev/react-router";
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import { authProvider, dataProvider, liveProvider } from "./providers";
+import {Home, ForgotPassword, Login, Register } from "./pages";
 
 function App() {
   return (
@@ -27,11 +29,11 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                // dataProvider={dataProvider(gqlClient)}
-                // liveProvider={liveProvider(wsClient)}
+                dataProvider={dataProvider}
+                liveProvider={liveProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
-                // authProvider={authProvider}
+                authProvider={authProvider}
                 resources={[
                   {
                     name: "blog_posts",
@@ -63,6 +65,10 @@ function App() {
                 }}
               >
                 <Routes>
+                  <Route index element={<Home />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route
                     element={
                       <Authenticated
