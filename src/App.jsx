@@ -1,9 +1,14 @@
+// import Navbar from "./assets/components/navbar";
+import Sidebar from "./assets/components/sidebar";
 import "./index.css";
 function App() {
   return (
     <>
-      <section>
-        <h1 className="text-3xl font-bold underline">App</h1>
+      <section className="bg-gradient-to-br from-custom-blue to-custom-pink h-[100vh]">
+        {/* <header>
+          <Navbar />
+        </header> */}
+        <Sidebar />
       </section>
     </>
   );
