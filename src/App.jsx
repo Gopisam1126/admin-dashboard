@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "./assets/components/navbar";
 import Sidebar from "./assets/components/sidebar";
-import ChartComponent from "./assets/components/chartComponent"
+// import ChartComponent from "./assets/components/chartComponent"
 import "./index.css";
 import Sales from "./assets/components/sales";
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         <div>
           <Sales isOpen={isOpen}/>
-          <ChartComponent/>
+          {/* <ChartComponent/> */}
         </div>
       </section>
     </>

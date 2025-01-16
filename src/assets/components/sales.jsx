@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import LineChart from "./incomeChart";
+import ExpencesChart from "./expencesChart";
+import TpChart from "./tpChart";
 /* eslint-disable react/prop-types */
 const Sales = ({ isOpen }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -43,6 +45,8 @@ const Sales = ({ isOpen }) => {
           onClick={() => handleActiveTab(index)}
         />
       ))}
+      {activeTab === 0 ? <LineChart/> : activeTab === 1 ? <ExpencesChart/> : activeTab === 2 ? <TpChart/> : ""}
+      {/* <LineChart/> */}
     </div>
   );
 };

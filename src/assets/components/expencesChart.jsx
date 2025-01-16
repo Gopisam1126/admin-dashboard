@@ -13,7 +13,7 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const LineChart = () => {
+const ExpencesChart = () => {
   // Data for the line chart
   const data = {
     labels: [
@@ -23,7 +23,7 @@ const LineChart = () => {
     datasets: [
       {
         label: 'Sales',
-        data: [200, 300, 250, 400, 342, 380, 420, 500, 450, 400, 380, 600],
+        data: [100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600],
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 2,
@@ -84,7 +84,7 @@ const LineChart = () => {
       intersect: false, // Allow the tooltip to show even when not hovering directly on a point
     },
     animation: {
-      duration: 2000, // Duration of the animation in milliseconds
+      duration: 1000, // Duration of the animation in milliseconds
       easing: 'easeInOutQuad', // Easing function for the animation
     },
   };
@@ -93,8 +93,8 @@ const LineChart = () => {
     <div
       style={{
         position: 'absolute',
-        top: '20rem',
-        left: '10rem',
+        top: '16rem',
+        left: '5rem',
         width: '1250px',
         height: '400px',
       }}
@@ -104,4 +104,4 @@ const LineChart = () => {
   );
 };
 
-export default LineChart;
+export default ExpencesChart;
