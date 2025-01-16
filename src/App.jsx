@@ -5,7 +5,7 @@ import ChartComponent from "./assets/components/chartComponent"
 import "./index.css";
 import Sales from "./assets/components/sales";
 function App() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
