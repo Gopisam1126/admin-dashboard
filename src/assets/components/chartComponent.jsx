@@ -93,9 +93,9 @@ const LineChart = () => {
     <div
       style={{
         position: 'absolute',
-        top: '10rem',
+        top: '20rem',
         left: '10rem',
-        width: '600px',
+        width: '1250px',
         height: '400px',
       }}
     >
