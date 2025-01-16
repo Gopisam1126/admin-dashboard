@@ -9,5 +9,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.caret-custom': {
+          caretColor: '#3490dc', // Custom caret color
+        },
+      });
+    },
+  ],
 };

@@ -1,23 +1,22 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import { sideBarItems } from "../utils/sidebar";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { Link } from "@mui/material";
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <section
-      className={`fixed top-0 left-0 text-slate-50 bg-slate-800 py-1 h-[100vh] transition-all duration-300 ${
-        isOpen ? "w-80" : "w-20"
+      className={`fixed top-0 left-0 text-slate-50  py-1 h-[100vh] transition-all duration-300 ${
+        isOpen ? "w-80 bg-slate-800" : "w-20 bg-transparent"
       }`}
     >
       <aside className={`px-5 w-full`}>
-        <div className={`${isOpen ? "relative left-48" : "relative left-1"} transition-all duration-300`}>
+        <div
+          className={`${
+            isOpen ? "relative left-48" : "relative left-1"
+          } transition-all duration-300 w-fit`}
+        >
           {isOpen ? (
             <MenuOpenIcon
               onClick={toggleSidebar}
@@ -44,17 +43,18 @@ const Sidebar = () => {
           {isOpen && (
             <h2 className="uppercase opacity-75 mt-3 text-lg">Dashboard</h2>
           )}
-          <div>
+          <div className="mt-5">
             {sideBarItems.map((item, i) => (
-              <div
+              <Link
                 key={i}
-                className={`list-none text-xl flex items-center gap-2 cursor-pointer mt-3 hover:bg-slate-700 py-1 px-1 rounded-lg transition-all duration-300 ${
+                t0={item.path}
+                className={`list-none !text-xl flex items-center gap-2 cursor-pointer mt-3 hover:bg-slate-700 py-1 px-1 rounded-lg transition-all duration-300 !text-slate-50 !no-underline !leading-relaxed ${
                   isOpen ? "justify-start" : "justify-center"
                 }`}
               >
                 <div>{item.icon}</div>
                 {isOpen && <li>{item.item}</li>}
-              </div>
+              </Link>
             ))}
           </div>
         </div>

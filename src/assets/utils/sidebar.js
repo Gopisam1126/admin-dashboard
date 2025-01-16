@@ -15,7 +15,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 export const sideBarItems = [
     {
         icon: React.createElement(ShoppingCartIcon),
-        item: "Ecommerce"
+        item: "Ecommerce",
+        path: "/ecommerce"
     },
     {
         icon: React.createElement(RocketIcon),
