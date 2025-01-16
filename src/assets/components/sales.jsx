@@ -45,8 +45,17 @@ const Sales = ({ isOpen }) => {
           onClick={() => handleActiveTab(index)}
         />
       ))}
-      {activeTab === 0 ? <LineChart/> : activeTab === 1 ? <ExpencesChart/> : activeTab === 2 ? <TpChart/> : ""}
-      {/* <LineChart/> */}
+      <div>
+        {activeTab === 0 ? (
+          <LineChart />
+        ) : activeTab === 1 ? (
+          <ExpencesChart />
+        ) : activeTab === 2 ? (
+          <TpChart />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };
