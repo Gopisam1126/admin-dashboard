@@ -42,13 +42,11 @@ const Sales = ({ isOpen }) => {
     (income, index) => income - ExpenceData[index]
   );
 
-  console.log(TotalProfit);
-
   return (
     <div
       className={`grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl p-3 bg-transparent relative top-16 ${
-        isOpen ? "left-[22rem] w-[70rem]" : "left-[5rem] w-[90rem]"
-      } transition-all duration-300 w-90rem bg-slate-600 py-8 px-12`}
+        isOpen ? "w-[70rem]" : "w-[90rem]"
+      } left-[5rem] transition-all duration-300 w-90rem bg-slate-600 py-8 px-12`}
     >
       {navList.map((item, index) => (
         <TabButton
