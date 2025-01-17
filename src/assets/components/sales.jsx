@@ -45,13 +45,13 @@ const Sales = ({ isOpen }) => {
           onClick={() => handleActiveTab(index)}
         />
       ))}
-      <div>
+      <div className={`${isOpen ? "w-[50rem]" : "w-[70rem]"}`}>
         {activeTab === 0 ? (
-          <LineChart />
+          <LineChart isOpen={isOpen} />
         ) : activeTab === 1 ? (
-          <ExpencesChart />
+          <ExpencesChart isOpen={isOpen} />
         ) : activeTab === 2 ? (
-          <TpChart />
+          <TpChart isOpen={isOpen} />
         ) : (
           ""
         )}

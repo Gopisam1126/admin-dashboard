@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -13,7 +14,7 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const LineChart = () => {
+const LineChart = ({isOpen}) => {
   // Data for the line chart
   const data = {
     labels: [
@@ -95,8 +96,9 @@ const LineChart = () => {
         position: 'absolute',
         top: '16rem',
         left: '5rem',
-        width: '1250px',
+        width: `${isOpen ? "1000px" : "1300px"}`,
         height: '400px',
+        transition: "all 0.3s linear"
       }}
     >
       <Line data={data} options={options} />
