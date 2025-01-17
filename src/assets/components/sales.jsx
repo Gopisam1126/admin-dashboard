@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LineChart from "./incomeChart";
+import IncomeChart from "./incomeChart";
 import ExpencesChart from "./expencesChart";
 import TpChart from "./tpChart";
 /* eslint-disable react/prop-types */
@@ -31,6 +31,19 @@ const Sales = ({ isOpen }) => {
     },
   ];
 
+  const IncomeData = [
+    200, 300, 250, 400, 342, 380, 420, 500, 450, 400, 380, 600,
+  ];
+  const ExpenceData = [
+    100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600,
+  ];
+
+  const TotalProfit = IncomeData.map(
+    (income, index) => income - ExpenceData[index]
+  );
+
+  console.log(TotalProfit);
+
   return (
     <div
       className={`grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl p-3 bg-transparent relative top-16 ${
@@ -47,11 +60,11 @@ const Sales = ({ isOpen }) => {
       ))}
       <div className={`${isOpen ? "w-[50rem]" : "w-[70rem]"}`}>
         {activeTab === 0 ? (
-          <LineChart isOpen={isOpen} />
+          <IncomeChart isOpen={isOpen} IncomeData={IncomeData} />
         ) : activeTab === 1 ? (
-          <ExpencesChart isOpen={isOpen} />
+          <ExpencesChart isOpen={isOpen} ExpenceData={ExpenceData} />
         ) : activeTab === 2 ? (
-          <TpChart isOpen={isOpen} />
+          <TpChart isOpen={isOpen} TotalProfit={TotalProfit} />
         ) : (
           ""
         )}

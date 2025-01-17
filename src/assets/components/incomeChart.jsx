@@ -14,7 +14,10 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const LineChart = ({isOpen}) => {
+const IncomeChart = ({isOpen, IncomeData}) => {
+
+  const minY = Math.min(...IncomeData);
+  const maxY = Math.max(...IncomeData);
   // Data for the line chart
   const data = {
     labels: [
@@ -24,7 +27,7 @@ const LineChart = ({isOpen}) => {
     datasets: [
       {
         label: 'Sales',
-        data: [200, 300, 250, 400, 342, 380, 420, 500, 450, 400, 380, 600],
+        data: IncomeData,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 2,
@@ -69,8 +72,8 @@ const LineChart = ({isOpen}) => {
         },
       },
       y: {
-        min: 200,
-        max: 600,
+        min: Math.floor(minY / 100) * 100,
+        max: Math.ceil(maxY / 100) * 100,
         ticks: {
           color: '#fff', // Y-axis labels color
           stepSize: 100,
@@ -93,9 +96,9 @@ const LineChart = ({isOpen}) => {
   return (
     <div
       style={{
-        position: 'absolute',
-        top: '16rem',
-        left: '5rem',
+        position: 'relative',
+        top: '2rem',
+        left: '0rem',
         width: `${isOpen ? "1000px" : "1300px"}`,
         height: '400px',
         transition: "all 0.3s linear"
@@ -106,4 +109,4 @@ const LineChart = ({isOpen}) => {
   );
 };
 
-export default LineChart;
+export default IncomeChart;

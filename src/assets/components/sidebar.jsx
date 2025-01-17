@@ -8,7 +8,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <section
       className={`fixed top-0 left-0 text-slate-50  py-1 h-[100vh] transition-all duration-300 ${
-        isOpen ? "w-80 !bg-slate-800" : "w-20 bg-transparent"
+        isOpen ? "w-80 !bg-slate-800 z-10" : "w-20 bg-transparent"
       }`}
     >
       <aside className={`px-5 w-full`}>

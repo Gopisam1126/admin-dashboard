@@ -11,8 +11,8 @@ const Navbar = ({ isOpen }) => {
       className={`fixed ${
         isOpen
           ? "left-80 w-[80rem] bg-white/10 backdrop-blur-lg backdrop-opacity-70"
-          : "left-20 w-[92rem] bg-transparent"
-      } transition-all duration-300 flex items-center py-2 px-3 text-2xl text-slate-50`}
+          : "left-20 w-[92rem] bg-white/5 backdrop-blur-sm backdrop-opacity-10"
+      } transition-all duration-300 z-10 flex items-center py-2 px-3 text-2xl text-slate-50`}
     >
       <div className="">
         <input

@@ -14,7 +14,10 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const ExpencesChart = ({isOpen}) => {
+const ExpencesChart = ({isOpen, ExpenceData}) => {
+
+  const minY = Math.min(...ExpenceData);
+  const maxY = Math.max(...ExpenceData);
   // Data for the line chart
   const data = {
     labels: [
@@ -24,7 +27,7 @@ const ExpencesChart = ({isOpen}) => {
     datasets: [
       {
         label: 'Sales',
-        data: [100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600],
+        data: ExpenceData,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 2,
@@ -69,8 +72,8 @@ const ExpencesChart = ({isOpen}) => {
         },
       },
       y: {
-        min: 200,
-        max: 600,
+        min: Math.floor(minY / 100) * 100,
+        max: Math.ceil(maxY / 100) * 100,
         ticks: {
           color: '#fff', // Y-axis labels color
           stepSize: 100,
@@ -93,9 +96,9 @@ const ExpencesChart = ({isOpen}) => {
   return (
     <div
       style={{
-        position: 'absolute',
-        top: '16rem',
-        left: '5rem',
+        position: 'relative',
+        top: '2rem',
+        left: '0rem',
         width: `${isOpen ? "1000px" : "1300px"}`,
         height: '400px',
       }}

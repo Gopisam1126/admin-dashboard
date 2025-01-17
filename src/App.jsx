@@ -13,15 +13,13 @@ function App() {
 
   return (
     <>
-      {/* <section className="bg-gradient-to-br from-custom-blue to-custom-pink h-[100vh]"> */}
-      <section className="bg-slate-900 h-[100vh]">
+      <section className="bg-slate-900 h-screen overflow-x-hidden">
         <header>
           <Navbar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         </header>
-        <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         <div>
-          <Sales isOpen={isOpen}/>
-          {/* <ChartComponent/> */}
+          <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />
+          <Sales isOpen={isOpen} />
         </div>
       </section>
     </>

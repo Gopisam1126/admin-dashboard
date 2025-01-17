@@ -14,7 +14,12 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const TpChart = ({isOpen}) => {
+const TpChart = ({isOpen, TotalProfit}) => {
+  console.log("TP Chart : ", TotalProfit);
+
+  const minY = Math.min(...TotalProfit);
+  const maxY = Math.max(...TotalProfit);
+  
   // Data for the line chart
   const data = {
     labels: [
@@ -24,7 +29,7 @@ const TpChart = ({isOpen}) => {
     datasets: [
       {
         label: 'Sales',
-        data: [100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600],
+        data: TotalProfit,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 2,
@@ -69,8 +74,8 @@ const TpChart = ({isOpen}) => {
         },
       },
       y: {
-        min: 200,
-        max: 600,
+        min: Math.floor(minY / 100) * 100,
+        max: Math.ceil(maxY / 100) * 100,
         ticks: {
           color: '#fff', // Y-axis labels color
           stepSize: 100,
@@ -93,9 +98,9 @@ const TpChart = ({isOpen}) => {
   return (
     <div
       style={{
-        position: 'absolute',
-        top: '16rem',
-        left: '5rem',
+        position: 'relative',
+        top: '2rem',
+        left: '0rem',
         width: `${isOpen ? "1000px" : "1300px"}`,
         height: '400px',
       }}
