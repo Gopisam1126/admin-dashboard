@@ -11,13 +11,16 @@ import {
   Legend,
 } from 'chart.js';
 
+// Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const ExpencesChart = ({isOpen, ExpenceData}) => {
+const NewUsersChart = ({isOpen, ExpenceData}) => {
+  console.log("TP Chart : ", ExpenceData);
 
   const minY = Math.min(...ExpenceData);
   const maxY = Math.max(...ExpenceData);
-
+  
+  // Data for the line chart
   const data = {
     labels: [
       '01 Jun', '02 Jun', '03 Jun', '04 Jun', '05 Jun',
@@ -30,13 +33,14 @@ const ExpencesChart = ({isOpen, ExpenceData}) => {
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 2,
-        tension: 0.4,
-        pointRadius: 3,
-        pointHoverRadius: 5,
+        tension: 0.4, // Smooth curve
+        pointRadius: 3, // Size of the points
+        pointHoverRadius: 5, // Size of points on hover
       },
     ],
   };
 
+  // Options for the chart with a solid tooltip
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -106,4 +110,4 @@ const ExpencesChart = ({isOpen, ExpenceData}) => {
   );
 };
 
-export default ExpencesChart;
+export default NewUsersChart;

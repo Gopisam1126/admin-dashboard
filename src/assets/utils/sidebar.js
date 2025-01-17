@@ -15,12 +15,12 @@ import SettingsIcon from '@mui/icons-material/Settings';
 export const sideBarItems = [
     {
         icon: React.createElement(ShoppingCartIcon),
-        item: "Ecommerce",
+        item: "Overview",
         path: "/ecommerce"
     },
     {
         icon: React.createElement(RocketIcon),
-        item: "Project"
+        item: "Projects"
     },
     {
         icon: React.createElement(CampaignIcon),
@@ -28,7 +28,7 @@ export const sideBarItems = [
     },
     {
         icon: React.createElement(AnalyticsIcon),
-        item: "Analytic"
+        item: "Statisics"
     },
     {
         icon: React.createElement(TrendingUpIcon),
