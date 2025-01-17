@@ -2,6 +2,10 @@ import { useState } from "react";
 import IncomeChart from "./incomeChart";
 import ExpencesChart from "./expencesChart";
 import TpChart from "./tpChart";
+import React from "react";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import SavingsIcon from "@mui/icons-material/Savings";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 /* eslint-disable react/prop-types */
 const Sales = ({ isOpen }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -16,18 +20,54 @@ const Sales = ({ isOpen }) => {
       value: "$82,373.21",
       sign: true,
       perc: "3.4%",
+      icon: React.createElement(SavingsIcon, {
+        style: {
+          position: "relative",
+          left: `${isOpen ? "10rem" : "17rem"}`,
+          color: "#000",
+          backgroundColor: "#BAE6FD",
+          padding: "8px",
+          height: "3rem",
+          width: "3rem",
+          borderRadius: "50%",
+        },
+      }),
     },
     {
       mainHead: "Expense",
       value: "$82,373.21",
       sign: false,
       perc: "2.4%",
+      icon: React.createElement(AccountBalanceWalletIcon, {
+        style: {
+          position: "relative",
+          left: `${isOpen ? "10rem" : "17rem"}`,
+          color: "#000",
+          backgroundColor: "#A7F3D0",
+          padding: "8px",
+          height: "3rem",
+          width: "3rem",
+          borderRadius: "50%",
+        },
+      }),
     },
     {
       mainHead: "Total Profit",
       value: "$82,373.21",
       sign: true,
       perc: "5.4%",
+      icon: React.createElement(AttachMoneyIcon, {
+        style: {
+          position: "relative",
+          left: `${isOpen ? "10rem" : "15.5rem"}`,
+          color: "#000",
+          backgroundColor: "#E9D5FF",
+          padding: "8px",
+          height: "3rem",
+          width: "3rem",
+          borderRadius: "50%",
+        },
+      }),
     },
   ];
 
@@ -81,8 +121,9 @@ const TabButton = ({ item, isActive, onClick }) => {
     >
       <div className="flex md:flex-col-reverse gap-2 2xl:flex-row justify-between relative">
         <div>
-          <div className="mb-1 text-lg font-semibold w-fit">
+          <div className="flex items-center mb-1 text-lg font-semibold w-fit">
             {item.mainHead}
+            <div className="relative -top-2">{item.icon}</div>
           </div>
           <h3 className="mb-1 w-fit">
             <span>{item.value}</span>
