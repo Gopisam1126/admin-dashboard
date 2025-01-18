@@ -7,7 +7,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SavingsIcon from "@mui/icons-material/Savings";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 /* eslint-disable react/prop-types */
-const Sales = ({ isOpen }) => {
+const Sales = ({ isOpen, IncomeData, ExpenceData, TotalProfit }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleActiveTab = (index) => {
@@ -70,17 +70,6 @@ const Sales = ({ isOpen }) => {
       }),
     },
   ];
-
-  const IncomeData = [
-    200, 300, 250, 400, 342, 380, 420, 500, 450, 400, 380, 600,
-  ];
-  const ExpenceData = [
-    100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600,
-  ];
-
-  const TotalProfit = IncomeData.map(
-    (income, index) => income - ExpenceData[index]
-  );
 
   return (
     <div

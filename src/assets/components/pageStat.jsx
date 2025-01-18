@@ -1,112 +1,36 @@
 /* eslint-disable react/prop-types */
-import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import NewUsersChart from "./newUsersChart";
+import ActiveSessions from "./sessionChart";
+import NumberOfVisitos from "./visitorChart";
 
-// Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
-
-const IncomeChart = ({isOpen, IncomeData}) => {
-
-  const minY = Math.min(...IncomeData);
-  const maxY = Math.max(...IncomeData);
-  // Data for the line chart
-  const data = {
-    labels: [
-      '01 Jun', '02 Jun', '03 Jun', '04 Jun', '05 Jun',
-      '06 Jun', '07 Jun', '08 Jun', '09 Jun', '10 Jun', '11 Jun', '12 Jun',
-    ],
-    datasets: [
-      {
-        label: 'Sales',
-        data: IncomeData,
-        borderColor: 'rgba(75, 192, 192, 1)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderWidth: 2,
-        tension: 0.4, // Smooth curve
-        pointRadius: 3, // Size of the points
-        pointHoverRadius: 5, // Size of points on hover
-      },
-    ],
-  };
-
-  // Options for the chart with a solid tooltip
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: true,
-        backgroundColor: '#ffffff', // Solid white background
-        titleColor: '#000000', // Black color for the title
-        bodyColor: '#000000', // Black color for the content
-        borderColor: 'rgba(75, 192, 192, 1)', // Border color of the tooltip
-        borderWidth: 1, // Width of the border
-        titleFont: { size: 14, weight: 'bold' },
-        bodyFont: { size: 12 },
-        displayColors: false, // Hide the legend color box
-        callbacks: {
-          title: (tooltipItems) => tooltipItems[0].label, // Display the label as the title
-          label: (tooltipItem) => `Sales: ${tooltipItem.raw}`, // Display the sales value
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#fff', // X-axis labels color
-        },
-        grid: {
-          display: false, // Hide vertical gridlines
-        },
-      },
-      y: {
-        min: Math.floor(minY / 100) * 100,
-        max: Math.ceil(maxY / 100) * 100,
-        ticks: {
-          color: '#fff', // Y-axis labels color
-          stepSize: 100,
-        },
-        grid: {
-          color: '#fff', // Horizontal gridlines color
-        },
-      },
-    },
-    interaction: {
-      mode: 'index', // Ensure the tooltip is triggered by the x-axis value
-      intersect: false, // Allow the tooltip to show even when not hovering directly on a point
-    },
-    animation: {
-      duration: 1000, // Duration of the animation in milliseconds
-      easing: 'easeInOutQuad', // Easing function for the animation
-    },
-  };
-
+const PageStatus = ({ isOpen, ExpenceData, IncomeData, TotalProfit }) => {
   return (
     <div
-      style={{
-        position: 'relative',
-        top: '2rem',
-        left: '0rem',
-        width: `${isOpen ? "1000px" : "1300px"}`,
-        height: '400px',
-        transition: "all 0.3s linear"
-      }}
+      className={`relative top-32 ${
+        isOpen ? "w-[calc(100%-30rem)] ml-20" : "mx-24"
+      } transition-all duration-500 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 text-slate-50`}
     >
-      <Line data={data} options={options} />
+      <div className="relative bg-slate-800 rounded-2xl w-full h-64 p-4 flex items-center justify-center">
+        <h1 className="absolute top-4 left-4 text-lg underline">New Users</h1>
+        <span className="absolute top-12 left-4 text-3xl font-bold">200</span>
+        <NewUsersChart ExpenceData={ExpenceData} />
+      </div>
+
+      <div className="relative bg-slate-800 rounded-2xl w-full h-64 p-4 flex items-center justify-center">
+        <h1 className="absolute top-4 left-4 text-lg underline">
+          Active Sessions
+        </h1>
+        <span className="absolute top-12 left-4 text-3xl font-bold">74</span>
+        <ActiveSessions IncomeData={IncomeData} />
+      </div>
+
+      <div className="relative bg-slate-800 rounded-2xl w-full h-64 p-4 flex items-center justify-center">
+        <h1 className="absolute top-4 left-4 text-lg underline">Views</h1>
+        <span className="absolute top-12 left-4 text-3xl font-bold">328</span>
+        <NumberOfVisitos TotalProfit={TotalProfit} />
+      </div>
     </div>
   );
 };
 
-export default IncomeChart;
+export default PageStatus;

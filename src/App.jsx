@@ -5,7 +5,7 @@ import "./index.css";
 import Sales from "./assets/components/sales";
 import TopCountries from "./assets/components/topCountries";
 import RecentOrders from "./assets/components/recentProjects";
-import NewUsersChart from "./assets/components/newUsersChart";
+import PageStatus from "./assets/components/pageStat";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,9 +13,16 @@ function App() {
     setIsOpen((prev) => !prev);
   };
 
+  const IncomeData = [
+    200, 300, 250, 400, 342, 380, 420, 500, 450, 400, 380, 600,
+  ];
   const ExpenceData = [
     100, 400, 200, 300, 345, 400, 450, 300, 350, 400, 380, 600,
   ];
+
+  const TotalProfit = IncomeData.map(
+    (income, index) => income - ExpenceData[index]
+  );
 
   return (
     <>
@@ -25,10 +32,20 @@ function App() {
         </header>
         <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         <div className={`${isOpen ? "translate-x-[18rem]" : ""}`}>
-          <Sales isOpen={isOpen} />
-          <RecentOrders isOpen={isOpen}/>
+          <Sales
+            isOpen={isOpen}
+            IncomeData={IncomeData}
+            ExpenceData={ExpenceData}
+            TotalProfit={TotalProfit}
+          />
+          <RecentOrders isOpen={isOpen} />
           <TopCountries isOpen={isOpen} />
-          <NewUsersChart ExpenceData={ExpenceData}/>
+          <PageStatus
+            ExpenceData={ExpenceData}
+            IncomeData={IncomeData}
+            TotalProfit={TotalProfit}
+            isOpen={isOpen}
+          />
         </div>
       </section>
     </>

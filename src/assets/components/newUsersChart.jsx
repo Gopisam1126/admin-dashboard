@@ -1,41 +1,48 @@
 /* eslint-disable react/prop-types */
-import { Line } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
 // Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const NewUsersChart = ({isOpen, ExpenceData}) => {
+const NewUsersChart = ({ ExpenceData }) => {
   console.log("TP Chart : ", ExpenceData);
 
   const minY = Math.min(...ExpenceData);
   const maxY = Math.max(...ExpenceData);
-  
-  // Data for the line chart
+
+  // Data for the bar chart
   const data = {
     labels: [
-      '01 Jun', '02 Jun', '03 Jun', '04 Jun', '05 Jun',
-      '06 Jun', '07 Jun', '08 Jun', '09 Jun', '10 Jun', '11 Jun', '12 Jun',
+      "01 Jun",
+      "02 Jun",
+      "03 Jun",
+      "04 Jun",
+      "05 Jun",
+      "06 Jun",
+      "07 Jun",
+      "08 Jun",
+      "09 Jun",
+      "10 Jun",
+      "11 Jun",
+      "12 Jun",
     ],
     datasets: [
       {
-        label: 'Sales',
+        label: "Sales",
         data: ExpenceData,
-        borderColor: 'rgba(75, 192, 192, 1)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderWidth: 2,
-        tension: 0.4, // Smooth curve
-        pointRadius: 3, // Size of the points
-        pointHoverRadius: 5, // Size of points on hover
+        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        borderWidth: 1,
+        barThickness: 16, // Controls the thickness of the bars
       },
     ],
   };
@@ -50,12 +57,12 @@ const NewUsersChart = ({isOpen, ExpenceData}) => {
       },
       tooltip: {
         enabled: true,
-        backgroundColor: '#ffffff',
-        titleColor: '#000000',
-        bodyColor: '#000000',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: "#ffffff",
+        titleColor: "#000000",
+        bodyColor: "#000000",
+        borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
-        titleFont: { size: 14, weight: 'bold' },
+        titleFont: { size: 14, weight: "bold" },
         bodyFont: { size: 12 },
         displayColors: false,
         callbacks: {
@@ -67,7 +74,7 @@ const NewUsersChart = ({isOpen, ExpenceData}) => {
     scales: {
       x: {
         ticks: {
-          color: '#fff',
+          display: false,
         },
         grid: {
           display: false,
@@ -77,35 +84,38 @@ const NewUsersChart = ({isOpen, ExpenceData}) => {
         min: Math.floor(minY / 100) * 100,
         max: Math.ceil(maxY / 100) * 100,
         ticks: {
-          color: '#fff',
+          display: false,
           stepSize: 100,
+          font: {
+            size: 10,
+            color: "#555",
+          },
         },
         grid: {
-          color: '#fff',
+          display: false,
         },
       },
     },
     interaction: {
-      mode: 'index', // Ensure the tooltip is triggered by the x-axis value
-      intersect: false, // Allow the tooltip to show even when not hovering directly on a point
+      mode: "index",
+      intersect: false,
     },
     animation: {
       duration: 1000,
-      easing: 'easeInOutQuad',
+      easing: "easeInOutQuad",
     },
   };
 
   return (
     <div
       style={{
-        position: 'relative',
-        top: '2rem',
-        left: '0rem',
-        width: `${isOpen ? "1000px" : "1300px"}`,
-        height: '400px',
+        position: "relative",
+        left: "-1rem",
+        width: "20rem",
+        height: "10rem",
       }}
     >
-      <Line data={data} options={options} />
+      <Bar data={data} options={options} />
     </div>
   );
 };
