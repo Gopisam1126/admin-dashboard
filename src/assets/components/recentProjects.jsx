@@ -61,7 +61,7 @@ const RecentOrders = ({ isOpen }) => {
 
   return (
     <div
-      className={`relative top-28 p-6 bg-gray-900 text-white rounded-lg mx-24 ${
+      className={`relative top-48 p-6 bg-gray-900 text-white rounded-lg mx-24 ${
         isOpen ? "w-[65rem]" : "w-[84rem]"
       }`}
     >

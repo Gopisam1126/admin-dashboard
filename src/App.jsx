@@ -7,6 +7,7 @@ import TopCountries from "./assets/components/topCountries";
 import RecentOrders from "./assets/components/recentProjects";
 import PageStatus from "./assets/components/pageStat";
 import ProjectStatus from "./assets/components/projectStatus";
+import DeviceUsageChart from "./assets/components/charts/traffic/devicesStat";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <>
-      <section className="bg-slate-900 h-[150rem] overflow-hidden">
+      <section className="bg-slate-900 h-[200rem] overflow-hidden">
         <header>
           <Navbar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         </header>
@@ -39,6 +40,7 @@ function App() {
             ExpenceData={ExpenceData}
             TotalProfit={TotalProfit}
           />
+          <ProjectStatus isOpen={isOpen} />
           <RecentOrders isOpen={isOpen} />
           <PageStatus
             ExpenceData={ExpenceData}
@@ -47,7 +49,10 @@ function App() {
             isOpen={isOpen}
           />
           <TopCountries isOpen={isOpen} />
-          <ProjectStatus/>
+          <div className="relative top-80 text-slate-50 mx-24">
+            <h1 className="w-fit text-3xl">Session Devices</h1>
+            <DeviceUsageChart isOpen={isOpen} />
+          </div>
         </div>
       </section>
     </>

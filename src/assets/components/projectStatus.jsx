@@ -69,13 +69,11 @@ const ProjectStatus = ({ isOpen }) => {
     <div className="relative top-44 text-slate-50 ">
       <h1 className="text-3xl mx-24 translate-x-5">Project Status</h1>
       <div
-        className={`${
-          isOpen ? "grid-cols-2" : "mx-24 w-[65rem] !grid-cols-4"
-        } transition-all duration-500 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 text-slate-50`}
+        className={`${isOpen ? "lg:grid-cols-2 w-[65rem]" : "lg:grid-cols-4"} mx-24 transition-all duration-500 grid grid-cols-1 gap-4 p-4 text-slate-50`}
       >
         {proStatItems.map((item, i) => (
           <div
-            className="relative bg-slate-800 rounded-2xl w-full h-48 p-4 flex items-center justify-center"
+            className="relative bg-slate-800 rounded-2xl shadow-xl- w-full h-48 p-4 flex items-center justify-center"
             key={i}
           >
             <h1 className="absolute top-4 left-20 text-2xl">{item.statHead}</h1>
