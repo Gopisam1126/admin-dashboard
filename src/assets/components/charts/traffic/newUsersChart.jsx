@@ -14,7 +14,6 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const NewUsersChart = ({ ExpenceData }) => {
-  console.log("TP Chart : ", ExpenceData);
 
   const minY = Math.min(...ExpenceData);
   const maxY = Math.max(...ExpenceData);

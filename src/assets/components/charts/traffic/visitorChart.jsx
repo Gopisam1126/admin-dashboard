@@ -1,25 +1,33 @@
 /* eslint-disable react/prop-types */
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 
 // Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-const ActiveSessions = ({ IncomeData }) => {
-  console.log("TP Chart : ", IncomeData);
+const NumberOfVisitos = ({ TotalProfit }) => {
 
-  const minY = Math.min(...IncomeData);
-  const maxY = Math.max(...IncomeData);
+  const minY = Math.min(...TotalProfit);
+  const maxY = Math.max(...TotalProfit);
 
-  // Data for the bar chart
+  // Data for the line chart
   const data = {
     labels: [
       "01 Jun",
@@ -38,11 +46,13 @@ const ActiveSessions = ({ IncomeData }) => {
     datasets: [
       {
         label: "Sales",
-        data: IncomeData,
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        data: TotalProfit,
         borderColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
-        barThickness: 16, // Controls the thickness of the bars
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderWidth: 2,
+        tension: 0.4, // Smooth curve
+        pointRadius: 0, // Size of the points
+        pointHoverRadius: 3, // Size of points on hover
       },
     ],
   };
@@ -86,10 +96,6 @@ const ActiveSessions = ({ IncomeData }) => {
         ticks: {
           display: false,
           stepSize: 100,
-          font: {
-            size: 10,
-            color: "#555",
-          },
         },
         grid: {
           display: false,
@@ -97,8 +103,8 @@ const ActiveSessions = ({ IncomeData }) => {
       },
     },
     interaction: {
-      mode: "index",
-      intersect: false,
+      mode: "index", // Ensure the tooltip is triggered by the x-axis value
+      intersect: false, // Allow the tooltip to show even when not hovering directly on a point
     },
     animation: {
       duration: 1000,
@@ -110,14 +116,13 @@ const ActiveSessions = ({ IncomeData }) => {
     <div
       style={{
         position: "relative",
-        left: "-1rem",
-        width: "20rem",
-        height: "10rem",
+        width: "15rem",
+        height: "8rem",
       }}
     >
-      <Bar data={data} options={options} />
+      <Line data={data} options={options} />
     </div>
   );
 };
 
-export default ActiveSessions;
+export default NumberOfVisitos;

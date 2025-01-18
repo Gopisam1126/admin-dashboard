@@ -15,7 +15,6 @@ import {
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const TpChart = ({isOpen, TotalProfit}) => {
-  console.log("TP Chart : ", TotalProfit);
 
   const minY = Math.min(...TotalProfit);
   const maxY = Math.max(...TotalProfit);

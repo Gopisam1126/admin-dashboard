@@ -6,6 +6,7 @@ import Sales from "./assets/components/sales";
 import TopCountries from "./assets/components/topCountries";
 import RecentOrders from "./assets/components/recentProjects";
 import PageStatus from "./assets/components/pageStat";
+import ProjectStatus from "./assets/components/projectStatus";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,13 +40,14 @@ function App() {
             TotalProfit={TotalProfit}
           />
           <RecentOrders isOpen={isOpen} />
-          <TopCountries isOpen={isOpen} />
           <PageStatus
             ExpenceData={ExpenceData}
             IncomeData={IncomeData}
             TotalProfit={TotalProfit}
             isOpen={isOpen}
           />
+          <TopCountries isOpen={isOpen} />
+          <ProjectStatus/>
         </div>
       </section>
     </>

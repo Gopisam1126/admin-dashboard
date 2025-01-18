@@ -1,7 +1,7 @@
 import { useState } from "react";
-import IncomeChart from "./incomeChart";
-import ExpencesChart from "./expencesChart";
-import TpChart from "./tpChart";
+import IncomeChart from "./charts/sales/incomeChart";
+import ExpencesChart from "./charts/sales/expencesChart";
+import TpChart from "./charts/sales/tpChart";
 import React from "react";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SavingsIcon from "@mui/icons-material/Savings";

@@ -69,12 +69,12 @@ const TopCountries = ({ isOpen }) => {
 
   return (
     <section className="text-slate-50">
-      <div className={`relative top-32 mx-24 transition-all duration-500`}>
+      <div className={`relative top-40 mx-24 transition-all duration-500`}>
         <h1 className="text-3xl">Top Countries</h1>
       </div>
 
       <div
-        className={`relative top-24 mx-24 mt-14 bg-slate-950 rounded-2xl shadow-lg flex ${
+        className={`relative top-32 mx-24 mt-14 bg-slate-950 rounded-2xl shadow-lg flex ${
           isOpen ? "w-[65rem]" : ""
         } transition-all duration-500`}
       >
