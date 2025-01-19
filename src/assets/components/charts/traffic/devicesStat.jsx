@@ -15,7 +15,7 @@ const DeviceUsageChart = () => {
       {
         label: 'Device Usage',
         data: [25, 32, 43], // Values as percentages
-        backgroundColor: ['#020617', '#E9D5FF', '#A7F3D0'], // Colors for slices
+        backgroundColor: ['#BAE6FD', '#E9D5FF', '#A7F3D0'], // Colors for slices
         hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Colors on hover
       },
     ],
@@ -25,7 +25,7 @@ const DeviceUsageChart = () => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'bottom',
         labels: {
           color: '#fff', // Legend text color
           font: {
@@ -53,7 +53,7 @@ const DeviceUsageChart = () => {
     <div
       style={{
         position: 'relative',
-        top: "8rem",
+        top: "4rem",
         width: '400px',
         height: '400px',
         margin: 'auto',

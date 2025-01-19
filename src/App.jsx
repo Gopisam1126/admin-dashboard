@@ -8,6 +8,7 @@ import RecentOrders from "./assets/components/recentProjects";
 import PageStatus from "./assets/components/pageStat";
 import ProjectStatus from "./assets/components/projectStatus";
 import DeviceUsageChart from "./assets/components/charts/traffic/devicesStat";
+import BrowserStat from "./assets/components/browserStat";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <>
-      <section className="bg-slate-900 h-[200rem] overflow-hidden">
+      <section className="bg-slate-900 h-[250rem] overflow-hidden">
         <header>
           <Navbar toggleSidebar={toggleSidebar} isOpen={isOpen} />
         </header>
@@ -49,9 +50,15 @@ function App() {
             isOpen={isOpen}
           />
           <TopCountries isOpen={isOpen} />
-          <div className="relative top-80 text-slate-50 mx-24">
-            <h1 className="w-fit text-3xl">Session Devices</h1>
-            <DeviceUsageChart isOpen={isOpen} />
+          <div className="relative top-80 text-slate-50 mx-24 grid grid-cols-2">
+            <div className=" bg-slate-800 h-[40rem] px-10 py-5 rounded-lg">
+              <h1 className="w-fit text-3xl">Session Devices</h1>
+              <DeviceUsageChart isOpen={isOpen} />
+            </div>
+            <div className="mx-24 bg-slate-800 h-[40rem] px-10 py-5">
+              <h1 className="w-fit text-3xl">Browser Statistics</h1>
+              <BrowserStat isOpen={isOpen} />
+            </div>
           </div>
         </div>
       </section>
