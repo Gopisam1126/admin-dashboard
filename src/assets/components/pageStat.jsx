@@ -37,8 +37,8 @@ const PageStatus = ({ isOpen, ExpenceData, IncomeData, TotalProfit }) => {
 
   return (
     <div
-      className={`relative top-48 ${
-        isOpen ? "w-[calc(100%-30rem)] ml-20" : "mx-24"
+      className={`${
+        isOpen ? "w-[calc(100%-15rem)]" : ""
       } transition-all duration-500 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 text-slate-50`}
     >
       {gridItems.map((item, i) => (

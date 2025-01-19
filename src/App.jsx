@@ -9,6 +9,7 @@ import PageStatus from "./assets/components/pageStat";
 import ProjectStatus from "./assets/components/projectStatus";
 import DeviceUsageChart from "./assets/components/charts/traffic/devicesStat";
 import BrowserStat from "./assets/components/browserStat";
+import AgeGroup from "./assets/components/charts/traffic/ageGroup";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,24 +44,31 @@ function App() {
           />
           <ProjectStatus isOpen={isOpen} />
           <RecentOrders isOpen={isOpen} />
-          <PageStatus
-            ExpenceData={ExpenceData}
-            IncomeData={IncomeData}
-            TotalProfit={TotalProfit}
-            isOpen={isOpen}
-          />
-          <TopCountries isOpen={isOpen} />
+          <div className="text-slate-50 mx-24 relative top-56">
+            <h1 className="text-3xl">User Statistics</h1>
+            <PageStatus
+              ExpenceData={ExpenceData}
+              IncomeData={IncomeData}
+              TotalProfit={TotalProfit}
+              isOpen={isOpen}
+            />
+          </div>
           <div className="relative top-80 text-slate-50 mx-24 grid grid-cols-2">
             <div className=" bg-slate-800 h-[40rem] px-10 py-5 rounded-lg">
               <h1 className="w-fit text-3xl">Session Devices</h1>
               <DeviceUsageChart isOpen={isOpen} />
             </div>
-            <div className="mx-24 bg-slate-800 h-[40rem] px-10 py-5">
+            <div className="mx-24 bg-slate-800 h-[25rem] px-10 py-5">
               <h1 className="w-fit text-3xl">Browser Statistics</h1>
               <BrowserStat isOpen={isOpen} />
             </div>
           </div>
+          <div className="relative top-[6rem] left-[47.5rem] mx-24 bg-slate-800 w-[29.5rem] h-[25rem] px-10 py-5 text-slate-50 rounded-lg">
+            <h1 className="w-fit text-3xl">Age Statistics</h1>
+            <AgeGroup isOpen={isOpen} />
+          </div>
         </div>
+        <TopCountries isOpen={isOpen} />
       </section>
     </>
   );

@@ -72,6 +72,7 @@ const BrowserStat = () => {
           ))}
         </tbody>
       </table>
+      
     </div>
   );
 };

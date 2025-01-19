@@ -1,22 +1,20 @@
-import { Doughnut } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import DesktopMacOutlinedIcon from "@mui/icons-material/DesktopMacOutlined";
+import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
+import TabletAndroidOutlinedIcon from "@mui/icons-material/TabletAndroidOutlined";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DeviceUsageChart = () => {
   const data = {
-    labels: ['Mobile', 'Computer', 'Tablet'],
+    labels: ["Desktop", "Mobile", "Tablet"],
     datasets: [
       {
-        label: 'Device Usage',
-        data: [25, 32, 43], // Values as percentages
-        backgroundColor: ['#BAE6FD', '#E9D5FF', '#A7F3D0'], // Colors for slices
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Colors on hover
+        label: "Device Usage",
+        data: [42.1, 33.7, 19.6],
+        backgroundColor: ["#60A5FA", "#FB923C", "#4ADE80"],
+        hoverBackgroundColor: ["#3B82F6", "#F97316", "#22C55E"],
       },
     ],
   };
@@ -25,13 +23,7 @@ const DeviceUsageChart = () => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'bottom',
-        labels: {
-          color: '#fff', // Legend text color
-          font: {
-            size: 14,
-          },
-        },
+        display: false,
       },
       tooltip: {
         callbacks: {
@@ -40,11 +32,11 @@ const DeviceUsageChart = () => {
             return `${tooltipItem.label}: ${value}%`;
           },
         },
-        backgroundColor: '#fff',
-        titleColor: '#000',
-        bodyColor: '#000',
-        borderWidth: 1,
-        borderColor: '#ddd',
+        backgroundColor: "#1E293B",
+        titleColor: "#F9FAFB",
+        bodyColor: "#F9FAFB",
+        borderWidth: 0.5,
+        borderColor: "#475569",
       },
     },
   };
@@ -52,14 +44,62 @@ const DeviceUsageChart = () => {
   return (
     <div
       style={{
-        position: 'relative',
-        top: "4rem",
-        width: '400px',
-        height: '400px',
-        margin: 'auto',
+        position: "relative",
+        top: "2rem",
+        width: "400px",
+        height: "400px",
+        margin: "auto",
+        padding: "20px",
       }}
     >
+      <h3
+        style={{
+          textAlign: "center",
+          color: "#F9FAFB",
+          fontSize: "18px",
+          marginBottom: "10px",
+        }}
+      >
+        Session devices
+      </h3>
       <Doughnut data={data} options={options} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          marginTop: "20px",
+          color: "#F9FAFB",
+          fontSize: "14px",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <div className="mb-2">
+            <DesktopMacOutlinedIcon style={{
+              color: "#60A5FA"
+            }} />
+          </div>
+          <p>Desktop</p>
+          <strong>42.1%</strong>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div className="mb-2">
+            <PhoneAndroidOutlinedIcon style={{
+              color: "#FB923C"
+            }} />
+          </div>
+          <p>Mobile</p>
+          <strong>33.7%</strong>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div className="mb-2">
+            <TabletAndroidOutlinedIcon style={{
+              color: "#4ADE80"
+            }} />
+          </div>
+          <p>Tablet</p>
+          <strong>19.6%</strong>
+        </div>
+      </div>
     </div>
   );
 };
