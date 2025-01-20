@@ -55,7 +55,11 @@ const TopCountries = ({ isOpen }) => {
   };
 
   const CountryBar = ({ point }) => (
-    <li className={`list-none bg-slate-900 mt-5 py-3 px-4 rounded-lg text-xl ${hoveredPoint === point.name ? "bg-custom-bar-hover" : ""}`}>
+    <li
+      className={`list-none bg-slate-900 mt-5 py-3 px-4 rounded-lg text-xl ${
+        hoveredPoint === point.name ? "bg-custom-bar-hover" : ""
+      }`}
+    >
       {point.name}
       <span className="text-lg ml-2">({point.percentage.toFixed(2)}%)</span>
       <div className="bg-slate-800 w-[25rem] h-3 mt-1 rounded">
@@ -69,13 +73,17 @@ const TopCountries = ({ isOpen }) => {
 
   return (
     <section className="text-slate-50">
-      <div className={`mx-24 transition-all duration-500 relative top-56`}>
+      <div
+        className={`mx-24 transition-all duration-500 relative top-52 ${
+          isOpen ? "translate-x-[15rem]" : ""
+        }`}
+      >
         <h1 className="text-3xl">Top Countries</h1>
       </div>
 
       <div
-        className={` mx-24 mt-14 relative top-56 bg-slate-950 rounded-2xl shadow-lg flex ${
-          isOpen ? "w-[65rem]" : ""
+        className={` mx-24 mt-14 relative top-52 bg-slate-950 rounded-2xl shadow-lg flex ${
+          isOpen ? "w-[65rem] translate-x-[15rem]" : ""
         } transition-all duration-500`}
       >
         <div className="relative top-5 w-[40rem] h-[23rem]">

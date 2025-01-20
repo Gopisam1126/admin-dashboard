@@ -53,17 +53,33 @@ function App() {
               isOpen={isOpen}
             />
           </div>
-          <div className="relative top-80 text-slate-50 mx-24 grid grid-cols-2">
-            <div className=" bg-slate-800 h-[40rem] px-10 py-5 rounded-lg">
+          <div
+            className={`relative top-80 text-slate-50 mx-24 grid ${
+              isOpen ? "grid-cols-2" : "grid-cols-2"
+            }`}
+          >
+            <div
+              className={`bg-slate-800 h-[40rem] ${
+                isOpen ? "w-[30rem]" : ""
+              } px-10 py-5 rounded-lg`}
+            >
               <h1 className="w-fit text-3xl">Session Devices</h1>
               <DeviceUsageChart isOpen={isOpen} />
             </div>
-            <div className="mx-24 bg-slate-800 h-[25rem] px-10 py-5">
+            <div
+              className={`mx-24 bg-slate-800 h-[25rem] ${
+                isOpen ? "w-[30rem] -translate-x-[10rem]" : ""
+              } px-10 py-5`}
+            >
               <h1 className="w-fit text-3xl">Browser Statistics</h1>
               <BrowserStat isOpen={isOpen} />
             </div>
           </div>
-          <div className="relative top-[6rem] left-[47.5rem] mx-24 bg-slate-800 w-[29.5rem] h-[25rem] px-10 py-5 text-slate-50 rounded-lg">
+          <div
+            className={`relative top-[6rem] left-[47.5rem] mx-24 bg-slate-800 w-[29.5rem] h-[25rem] px-10 py-5 text-slate-50 rounded-lg ${
+              isOpen ? "w-[30rem] -translate-x-[10rem]" : ""
+            }`}
+          >
             <h1 className="w-fit text-3xl">Age Statistics</h1>
             <AgeGroup isOpen={isOpen} />
           </div>
