@@ -16,50 +16,61 @@ export const sideBarItems = [
     {
         icon: React.createElement(ShoppingCartIcon),
         item: "Overview",
-        path: "/ecommerce"
+        path: "/"
     },
     {
         icon: React.createElement(RocketIcon),
-        item: "Projects"
+        item: "Projects",
+        path: "/projects"
     },
     {
         icon: React.createElement(CampaignIcon),
-        item: "Marketing"
+        item: "Marketing",
+        path: "/marketing"
     },
     {
         icon: React.createElement(AnalyticsIcon),
-        item: "Statisics"
+        item: "Statisics",
+        path: "/statistics"
     },
     {
         icon: React.createElement(TrendingUpIcon),
-        item: "Sales"
+        item: "Sales",
+        path: "/sales"
     },
     {
         icon: React.createElement(WarningIcon),
-        item: "Issues"
+        item: "Issues",
+        path: "/issues"
     },
     {
         icon: React.createElement(AccountCircleIcon),
-        item: "Users"
+        item: "Users",
+        path: "/users"
     },
     {
         icon: React.createElement(InventoryIcon),
-        item: "Inventory"
+        item: "Inventory",
+        path: "/inventory"
     },
     {
         icon: React.createElement(FeedbackIcon),
-        item: "Feedbacks"
+        item: "Feedbacks",
+        path: "/feedback"
     },
     {
         icon: React.createElement(PersonIcon),
-        item: "Staffs"
+        item: "Staffs",
+        path: "/staffs"
     },
     {
         icon: React.createElement(ElectricBoltIcon),
-        item: "Perfomance"
+        item: "Perfomance",
+        path: "/perfomance"
     },
     {
         icon: React.createElement(SettingsIcon),
-        item: "Settings"
+        item: "Settings",
+        path: "/settings"
     },
 ];

@@ -75,7 +75,7 @@ const TopCountries = ({ isOpen }) => {
     <section className="text-slate-50">
       <div
         className={`mx-24 transition-all duration-500 relative top-52 ${
-          isOpen ? "translate-x-[15rem]" : ""
+          isOpen ? "translate-x-[20rem]" : ""
         }`}
       >
         <h1 className="text-3xl">Top Countries</h1>
@@ -83,7 +83,7 @@ const TopCountries = ({ isOpen }) => {
 
       <div
         className={` mx-24 mt-14 relative top-52 bg-slate-950 rounded-2xl shadow-lg flex ${
-          isOpen ? "w-[65rem] translate-x-[15rem]" : ""
+          isOpen ? "w-[65rem] translate-x-[20rem]" : ""
         } transition-all duration-500`}
       >
         <div className="relative top-5 w-[40rem] h-[23rem]">

@@ -2,7 +2,7 @@
 import { sideBarItems } from "../utils/sidebar";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
@@ -47,8 +47,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             {sideBarItems.map((item, i) => (
               <Link
                 key={i}
-                t0={item.path}
-                className={`list-none !text-xl flex items-center gap-2 cursor-pointer mt-3 hover:bg-slate-700 py-1 px-1 rounded-lg transition-all duration-300 !text-slate-50 !no-underline !leading-relaxed ${
+                to={item.path}
+                className={`list-none !text-xl flex items-center gap-2 cursor-pointer mt-3 hover:bg-slate-700 py-1 px-1 rounded-lg transition-all duration-300 !text-slate-50 !no-underline !leading-tight ${
                   isOpen ? "justify-start" : "justify-center"
                 }`}
               >
